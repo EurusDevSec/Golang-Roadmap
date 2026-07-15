@@ -1,36 +1,21 @@
-# Golang Roadmap
+# Go for DevOps & Cloud
 
-Repo học Go theo từng chủ đề, ưu tiên kiến thức cốt lõi, best practices và bài tập thực hành.
+Lộ trình học Go thực chiến cho DevOps/Cloud: CLI, automation, API, concurrency, observability, container và Kubernetes. Không tập trung vào thuật toán khó.
 
-## Cấu trúc
+## Bắt đầu
 
-```text
-Go/
-├── lessons/          # Lý thuyết và bài tập bằng Markdown
-│   ├── 01-array/
-│   ├── 02-slice/
-│   └── 03-map/
-└── examples/         # Mã Go có thể chạy
-    ├── array/
-    ├── slice/
-    └── map/
-```
+1. Đọc [ROADMAP.md](ROADMAP.md) để biết thứ tự và tiêu chí hoàn thành.
+2. Mở [mục lục bài học](Go/lessons/README.md), đọc lý thuyết rồi chọn “Làm bài”.
+3. Tự làm bài tại `Go/practice/<ten-bai>/`.
+4. Chỉ chuyển bài khi vượt qua checklist và project checkpoint.
 
-## Thứ tự học
-
-1. [Array](Go/lessons/01-array/README.md)
-2. [Slice](Go/lessons/02-slice/README.md)
-3. [Map](Go/lessons/03-map/README.md)
-
-## Chạy ví dụ
-
-Từ thư mục gốc:
+## Lệnh thường dùng
 
 ```bash
-go run ./Go/examples/array
+go fmt ./...
+go vet ./...
+go test ./...
 go run ./Go/examples/slice
-go run ./Go/examples/map
 ```
 
-Mỗi bài tập nên được làm trong một thư mục riêng để các file `package main` không xung đột nhau.
-
+Nguyên tắc của repo: viết chương trình nhỏ nhưng hoàn chỉnh, có xử lý lỗi, timeout, test và tài liệu sử dụng.
