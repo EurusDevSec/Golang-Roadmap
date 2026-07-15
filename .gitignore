@@ -1,0 +1,36 @@
+# Go build outputs
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace and local cache
+go.work
+go.work.sum
+.gocache/
+.gotmp/
+.tools/
+
+# Test and coverage outputs
+coverage/
+coverage*.out
+*.prof
+
+# Environment and local settings
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
