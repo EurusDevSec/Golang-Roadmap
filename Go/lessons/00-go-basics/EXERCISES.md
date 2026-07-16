@@ -1,53 +1,118 @@
-# Bài tập 00 — Go basics
+# Bài tập cơ bản 00 — Làm quen lại với Go
 
-Tạo code tại `Go/practice/00-go-basics/`.
+Mỗi bài tạo một `main.go` riêng. Chỉ cần dùng `package main`, `fmt`, biến, `if` và `for`.
 
-## Bài 1 — Đổi byte sang MiB
+## Bài 1 — In thông tin
 
-Viết `func bytesToMiB(value int64) (float64, error)`. Giá trị âm trả lỗi.
-
-| Input | Output |
-|---:|---:|
-| `1048576` | `1.00` |
-| `1572864` | `1.50` |
-| `0` | `0.00` |
-| `-1` | error |
-
-## Bài 2 — Phân loại HTTP status
-
-Viết `func classifyStatus(code int) string`.
-
-| Input | Output |
-|---:|---|
-| `200` | `success` |
-| `302` | `redirect` |
-| `404` | `client_error` |
-| `503` | `server_error` |
-| `99` | `invalid` |
-
-## Bài 3 — Validate port
-
-CLI nhận một đối số là port.
+Viết chương trình in đúng ba dòng:
 
 ```text
-> go run . 8080
-valid port: 8080
-
-> go run . 70000
-error: port must be between 1 and 65535
+Name: An
+Role: DevOps
+Language: Go
 ```
 
-Exit code: `0` nếu hợp lệ, khác `0` nếu sai hoặc thiếu input.
+Gợi ý: dùng `fmt.Println` ba lần.
 
-## Bài 4 — Format uptime
+## Bài 2 — Khai báo biến
 
-Viết `func formatUptime(seconds int64) string`.
+Tạo các biến:
 
-| Input | Output |
-|---:|---|
-| `59` | `0d 00h 00m 59s` |
-| `3661` | `0d 01h 01m 01s` |
-| `90061` | `1d 01h 01m 01s` |
+```go
+name := "server-01"
+cpu := 4
+active := true
+```
 
-Không chấp nhận số âm.
+Output:
+
+```text
+server=server-01 cpu=4 active=true
+```
+
+Gợi ý: dùng `fmt.Printf` với `%s`, `%d`, `%t`.
+
+## Bài 3 — Cộng hai số
+
+Cho:
+
+```go
+a := 10
+b := 20
+```
+
+Output:
+
+```text
+sum=30
+```
+
+## Bài 4 — Kiểm tra số dương
+
+Cho `number := -5`. Nếu lớn hơn hoặc bằng `0`, in `positive`; ngược lại in `negative`.
+
+```text
+input:  -5
+output: negative
+```
+
+Thử lại với `number := 10`, output phải là `positive`.
+
+## Bài 5 — Kiểm tra CPU
+
+Cho `cpuUsage := 85`:
+
+- Nếu `cpuUsage >= 80`, in `high`.
+- Ngược lại, in `normal`.
+
+```text
+input:  85
+output: high
+```
+
+## Bài 6 — Vòng lặp từ 1 đến 5
+
+Output:
+
+```text
+1
+2
+3
+4
+5
+```
+
+Gợi ý: `for i := 1; i <= 5; i++`.
+
+## Bài 7 — In số chẵn
+
+In các số chẵn từ 1 đến 10:
+
+```text
+2 4 6 8 10
+```
+
+Gợi ý: số chẵn thỏa `i%2 == 0`.
+
+## Bài 8 — Viết function cộng
+
+Hoàn thành:
+
+```go
+func add(a int, b int) int {
+	// TODO
+}
+```
+
+Kiểm tra:
+
+```go
+fmt.Println(add(3, 5))
+```
+
+Output: `8`.
+
+## Hoàn thành khi
+
+Bạn tự làm được bài 1–6 và giải thích được biến, `if`, `for`, function.
 

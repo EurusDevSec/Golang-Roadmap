@@ -31,6 +31,6 @@ coverage*.out
 .vscode/
 *.swp
 *.swo
+tempCodeRunnerFile.go
 .DS_Store
 Thumbs.db
-

@@ -1,46 +1,90 @@
-# Bài tập 03 — Map
+# Bài tập cơ bản 03 — Map
 
-Tạo code tại `Go/practice/03-map/`.
+Chỉ dùng kiến thức: tạo map, thêm, đọc, sửa, xóa, `range` và comma-ok.
 
-## Bài 1 — Đếm trạng thái
-
-Viết `func countStatus(values []string) map[string]int`.
-
-```text
-input:  [running failed running pending failed running]
-output: failed=2 pending=1 running=3
-```
-
-Khi in phải sắp xếp key để output ổn định.
-
-## Bài 2 — Gom node theo region
+## Bài 1 — Tạo map
 
 ```go
-type Node struct { Name, Region string }
-func groupByRegion(nodes []Node) map[string][]string
+ports := map[string]int{
+	"http":  80,
+	"https": 443,
+}
+```
+
+Output:
+
+```text
+http=80
+https=443
+```
+
+Truy cập trực tiếp bằng key để output không phụ thuộc thứ tự map.
+
+## Bài 2 — Thêm phần tử
+
+Thêm `ssh=22`.
+
+```text
+ssh=22
+length=3
+```
+
+## Bài 3 — Cập nhật phần tử
+
+Cho `replicas := map[string]int{"api": 2, "worker": 1}`. Đổi `api` thành `3`.
+
+```text
+before=2
+after=3
+```
+
+## Bài 4 — Kiểm tra key
+
+Kiểm tra `db` có trong map sau không:
+
+```go
+services := map[string]string{"api": "running", "db": "stopped"}
 ```
 
 ```text
-input:  [{api-1 sg} {db-1 vn} {api-2 sg}]
-output: sg=[api-1 api-2] vn=[db-1]
+value=stopped exists=true
 ```
 
-## Bài 3 — Phần tử duy nhất đầu tiên
-
-Viết `func firstUnique(values []int) (int, bool)`.
-
-| Input | Output |
-|---|---|
-| `[4 5 4 6 5]` | `6 true` |
-| `[1 1 2 2]` | `0 false` |
-
-## Bài 4 — Gộp inventory
-
-Viết `func merge(a, b map[string]int) map[string]int`; key trùng thì cộng giá trị và không sửa input.
+Thử key `cache`:
 
 ```text
-a:      api=2 db=1
-b:      api=1 cache=3
-output: api=3 cache=3 db=1
+value= exists=false
 ```
 
+Gợi ý: `value, exists := services[key]`.
+
+## Bài 5 — Xóa key
+
+Xóa `db` khỏi map trên.
+
+```text
+before=2
+after=1
+```
+
+Gợi ý: `delete(services, "db")`.
+
+## Bài 6 — Đếm từ
+
+Cho `[]string{"go", "linux", "go", "docker", "go"}`.
+
+```text
+go=3
+linux=1
+docker=1
+```
+
+Gợi ý: tạo `counts := make(map[string]int)` rồi dùng `counts[word]++`.
+
+## Bài 7 — Duyệt map
+
+In tất cả key-value trong map. Chạy chương trình vài lần và quan sát thứ tự có thể thay đổi. Viết một câu kết luận về thứ tự của map.
+
+## Hoàn thành khi
+
+Bạn tự thêm, đọc, sửa, xóa key và làm được bài đếm từ.

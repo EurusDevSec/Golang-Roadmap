@@ -1,6 +1,6 @@
 # Mục lục bài học và bài tập
 
-Học theo thứ tự. Đọc lý thuyết ngắn trong README, sau đó mở đề và code tại `Go/practice/`.
+Nếu đang học lại từ đầu, hãy đọc [START HERE](START-HERE.md). Học theo thứ tự, đọc lý thuyết rồi mở đề và code tại `Go/practice/`.
 
 | # | Chủ đề | Lý thuyết | Bài tập cụ thể |
 |---:|---|---|---|
@@ -23,3 +23,4 @@ Học theo thứ tự. Đọc lý thuyết ngắn trong README, sau đó mở đ
 | 16 | Cloud automation | [Đọc bài](16-cloud-automation/README.md) | [Làm bài](16-cloud-automation/EXERCISES.md) |
 | 17 | Capstone | [Đọc bài](17-capstone/README.md) | [Làm project](17-capstone/EXERCISES.md) |
 
+Các chủ đề 00–03 có thêm `CHALLENGES.md`. Chưa cần mở chúng cho đến khi bạn làm chắc bài cơ bản.

@@ -4,13 +4,18 @@ Tạo mỗi bài trong một thư mục riêng:
 
 ```text
 Go/practice/
-├── endpoint-checker/
-│   ├── main.go
-│   └── main_test.go
-└── config-validator/
-    ├── main.go
-    └── main_test.go
+├── 00-go-basics/
+│   └── hello-function/main.go
+├── 01-array/
+│   ├── basics/main.go
+│   └── statistics/main.go
+└── 02-slice/
+    ├── create/main.go
+    ├── basics/main.go
+    └── capacity/main.go
 ```
+
+Mỗi thư mục con là một chương trình độc lập và chỉ có một hàm `main()`. Không đặt file `.go` trong `Go/lessons`; thư mục đó chỉ chứa tài liệu.
 
 Definition of Done cho mỗi bài:
 

@@ -1,41 +1,88 @@
-# Bài tập 01 — Array
+# Bài tập cơ bản 01 — Array
 
-Tạo code tại `Go/practice/01-array/`. Mỗi bài dùng array đúng kích thước, không đổi sang slice trừ khi đề yêu cầu.
+Chỉ dùng kiến thức: khai báo array, chỉ số, `len`, `for`, `range`.
 
-## Bài 1 — Thống kê CPU 5 phút
+## Bài 1 — Tạo và in array
 
-Cho `[5]float64{20.5, 35, 80.5, 70, 44}`. In min, max và average với 2 chữ số thập phân.
-
-```text
-min=20.50 max=80.50 avg=50.00
+```go
+numbers := [5]int{1, 2, 3, 4, 5}
 ```
 
-## Bài 2 — Đảo thứ tự node
-
-Viết `func reverse(nodes *[5]string)` sửa tại chỗ.
+Output:
 
 ```text
-input:  [node-1 node-2 node-3 node-4 node-5]
-output: [node-5 node-4 node-3 node-2 node-1]
+[1 2 3 4 5]
 ```
 
-Không tạo array phụ.
+## Bài 2 — Lấy phần tử
 
-## Bài 3 — Tìm lần đầu vượt ngưỡng
-
-Viết `func firstAbove(values [6]int, threshold int) (index int, ok bool)`.
-
-| Values | Threshold | Output |
-|---|---:|---|
-| `[40 55 72 91 60 30]` | `80` | `3 true` |
-| `[40 55 72 91 60 30]` | `100` | `-1 false` |
-
-## Bài 4 — Xoay lịch trực
-
-Xoay phải `[7]string` một vị trí bằng đúng một biến tạm.
+Dùng array trên và in phần tử đầu, phần tử thứ ba, phần tử cuối.
 
 ```text
-input:  [Mon Tue Wed Thu Fri Sat Sun]
-output: [Sun Mon Tue Wed Thu Fri Sat]
+first=1
+third=3
+last=5
 ```
+
+Gợi ý: chỉ số bắt đầu từ `0`; phần tử cuối là `numbers[len(numbers)-1]`.
+
+## Bài 3 — Thay đổi phần tử
+
+Cho:
+
+```go
+numbers := [3]int{10, 20, 30}
+```
+
+Đổi phần tử `20` thành `99`.
+
+```text
+before: [10 20 30]
+after:  [10 99 30]
+```
+
+## Bài 4 — Duyệt array
+
+Cho `[4]string{"api", "db", "cache", "worker"}`. In:
+
+```text
+0: api
+1: db
+2: cache
+3: worker
+```
+
+Gợi ý: `for index, value := range services`.
+
+## Bài 5 — Tính tổng
+
+Cho `[5]int{2, 4, 6, 8, 10}`.
+
+```text
+sum=30
+```
+
+Gợi ý: tạo `sum := 0`, sau đó cộng từng phần tử.
+
+## Bài 6 — Đếm số lớn hơn 5
+
+Cho `[6]int{2, 8, 1, 9, 5, 7}`.
+
+```text
+count=3
+```
+
+## Bài 7 — Tìm số lớn nhất
+
+Cho `[5]int{4, 10, 3, 8, 6}`.
+
+```text
+max=10
+```
+
+Gợi ý: bắt đầu bằng `max := numbers[0]`, sau đó so sánh các phần tử.
+
+## Hoàn thành khi
+
+Bạn hiểu `[5]int` có đúng 5 phần tử và tự làm được bài 1–6.
 

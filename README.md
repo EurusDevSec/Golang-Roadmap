@@ -4,10 +4,11 @@ Lộ trình học Go thực chiến cho DevOps/Cloud: CLI, automation, API, conc
 
 ## Bắt đầu
 
-1. Đọc [ROADMAP.md](ROADMAP.md) để biết thứ tự và tiêu chí hoàn thành.
-2. Mở [mục lục bài học](Go/lessons/README.md), đọc lý thuyết rồi chọn “Làm bài”.
-3. Tự làm bài tại `Go/practice/<ten-bai>/`.
-4. Chỉ chuyển bài khi vượt qua checklist và project checkpoint.
+1. Nếu đang luyện lại Go, bắt đầu tại [START HERE](Go/lessons/START-HERE.md).
+2. Sau khi chắc Array, Slice và Map, đọc [ROADMAP.md](ROADMAP.md).
+3. Mở [mục lục bài học](Go/lessons/README.md), đọc lý thuyết rồi chọn “Làm bài”.
+4. Tự làm bài tại `Go/practice/<ten-bai>/`.
+5. Chỉ chuyển bài khi vượt qua checklist và project checkpoint.
 
 ## Lệnh thường dùng
 
