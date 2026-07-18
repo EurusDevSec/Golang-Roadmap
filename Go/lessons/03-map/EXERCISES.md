@@ -2,6 +2,13 @@
 
 Chỉ dùng kiến thức: tạo map, thêm, đọc, sửa, xóa, `range` và comma-ok.
 
+## Quy ước output (quan trọng)
+
+- In theo dạng `key=value`, mỗi dòng một cặp.
+- Không dùng `fmt.Println(map)` để nộp kết quả, vì sẽ ra dạng `map[...]` khó so sánh.
+- Với bài có ghi "thứ tự có thể khác": chỉ cần đúng dữ liệu, không bắt buộc đúng thứ tự dòng.
+- Nếu muốn output ổn định để tự check dễ hơn: in theo key cố định (ví dụ `http`, `https`) thay vì `range` trực tiếp.
+
 ## Bài 1 — Tạo map
 
 ```go
@@ -11,32 +18,40 @@ ports := map[string]int{
 }
 ```
 
-Output:
+Output mẫu (một cách đúng):
 
 ```text
 http=80
 https=443
 ```
 
-Truy cập trực tiếp bằng key để output không phụ thuộc thứ tự map.
+Tiêu chí đạt: in đúng 2 dòng trên, đúng format `key=value`.
 
 ## Bài 2 — Thêm phần tử
 
 Thêm `ssh=22`.
+
+Output mẫu:
 
 ```text
 ssh=22
 length=3
 ```
 
+Tiêu chí đạt: có `ssh=22` và độ dài map sau khi thêm là `3`.
+
 ## Bài 3 — Cập nhật phần tử
 
 Cho `replicas := map[string]int{"api": 2, "worker": 1}`. Đổi `api` thành `3`.
+
+Output mẫu:
 
 ```text
 before=2
 after=3
 ```
+
+Tiêu chí đạt: giá trị `api` đổi từ `2` sang `3`.
 
 ## Bài 4 — Kiểm tra key
 
@@ -46,21 +61,28 @@ Kiểm tra `db` có trong map sau không:
 services := map[string]string{"api": "running", "db": "stopped"}
 ```
 
+Output mẫu (key `db`):
+
 ```text
 value=stopped exists=true
 ```
 
 Thử key `cache`:
 
+Output mẫu (key `cache`):
+
 ```text
 value= exists=false
 ```
 
+Tiêu chí đạt: phân biệt rõ key có tồn tại và không tồn tại bằng `exists`.
 Gợi ý: `value, exists := services[key]`.
 
 ## Bài 5 — Xóa key
 
 Xóa `db` khỏi map trên.
+
+Output mẫu:
 
 ```text
 before=2
@@ -73,17 +95,27 @@ Gợi ý: `delete(services, "db")`.
 
 Cho `[]string{"go", "linux", "go", "docker", "go"}`.
 
+Output mẫu (thứ tự dòng có thể khác):
+
 ```text
 go=3
 linux=1
 docker=1
 ```
 
+Tiêu chí đạt: đúng số đếm từng từ, không cần đúng thứ tự dòng.
+
 Gợi ý: tạo `counts := make(map[string]int)` rồi dùng `counts[word]++`.
 
 ## Bài 7 — Duyệt map
 
-In tất cả key-value trong map. Chạy chương trình vài lần và quan sát thứ tự có thể thay đổi. Viết một câu kết luận về thứ tự của map.
+In tất cả key-value trong map. Chạy chương trình vài lần và quan sát thứ tự có thể thay đổi.
+
+Mẫu kết luận:
+
+```text
+Thu tu duyet map trong Go khong co tinh on dinh, co the thay doi giua cac lan chay.
+```
 
 ## Hoàn thành khi
 
@@ -114,7 +146,7 @@ Yêu cầu:
 - In ra `https=443`.
 - Kiểm tra key `redis` có tồn tại hay không bằng comma-ok.
 
-Output mong muốn:
+Output mẫu:
 
 ```text
 https=443
@@ -138,7 +170,7 @@ Yêu cầu:
 - Đổi `db` thành `running`.
 - In trước và sau khi đổi.
 
-Output mong muốn:
+Output mẫu:
 
 ```text
 before=stopped
@@ -157,7 +189,7 @@ Yêu cầu:
 
 - Đếm số lần xuất hiện của từng env bằng map.
 
-Output mong muốn (thứ tự có thể khác):
+Output mẫu (thứ tự có thể khác):
 
 ```text
 prod=3
@@ -179,7 +211,7 @@ Yêu cầu:
 - Dùng `map[string]bool` để tạo whitelist.
 - Kiểm tra `checkIP` có được phép hay không.
 
-Output mong muốn:
+Output mẫu:
 
 ```text
 allowed=true
@@ -199,7 +231,7 @@ Yêu cầu:
 - Tạo `map[string][]string` để gom log message giả lập theo level.
 - Bạn có thể tự gán message dạng `msg-1`, `msg-2`, ... khi duyệt slice.
 
-Ví dụ output:
+Output mẫu:
 
 ```text
 INFO=[msg-1 msg-3]
@@ -230,7 +262,7 @@ Yêu cầu:
 - Copy toàn bộ `defaults` vào `finalCfg`, sau đó ghi đè bằng `override`.
 - Không sửa trực tiếp `defaults`.
 
-Output mong muốn:
+Output mẫu:
 
 ```text
 region=ap-southeast-1
@@ -256,7 +288,7 @@ Yêu cầu:
 - Xóa `db_password` và `api_key` trước khi in.
 - In `before` và `after` theo số lượng phần tử.
 
-Output mong muốn:
+Output mẫu:
 
 ```text
 before=4
@@ -276,7 +308,7 @@ Yêu cầu:
 - Đếm tần suất status code bằng `map[int]int`.
 - In ra số lượng của `200`, `500`, `503`.
 
-Output mong muốn:
+Output mẫu:
 
 ```text
 200=3
@@ -297,7 +329,7 @@ Yêu cầu:
 - Đếm số resource theo tenant.
 - Tìm tenant có nhiều resource nhất.
 
-Ví dụ output:
+Output mẫu:
 
 ```text
 team-a=3
@@ -312,3 +344,10 @@ max_tenant=team-a max_count=3
 - Bài 10, 15, 16: luyện map làm counter cho metric/log/monitoring.
 - Bài 11: luyện map như set để lọc trùng và check membership.
 - Bài 12: luyện map chứa slice, rất hay gặp khi gom dữ liệu theo nhóm.
+
+## Cách tự chấm nhanh
+
+- Đúng format: mỗi dòng là `ten_truong=gia_tri`.
+- Đúng dữ liệu: số/count/trạng thái đúng với đề.
+- Với bài có map `range`: chấp nhận khác thứ tự dòng.
+- Nếu bạn in trực tiếp map ra `map[...]` thì coi như chưa đạt phần format output.

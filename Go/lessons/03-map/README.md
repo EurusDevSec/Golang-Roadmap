@@ -93,15 +93,15 @@ for _, word := range words {
 ### Set
 
 ```go
-seen := make(map[string]struct{})
-seen["go"] = struct{}{}
+seen := make(map[string]bool)
+seen["go"] = true
 
-if _, ok := seen["go"]; ok {
+if seen["go"] {
     fmt.Println("đã gặp")
 }
 ```
 
-`struct{}` không chứa dữ liệu và thể hiện rõ map chỉ dùng để kiểm tra thành viên.
+`map[string]bool` dễ đọc hơn cho người mới học: `true` là có, `false` là không có.
 
 ### Map chứa slice
 
@@ -141,7 +141,7 @@ func clone[K comparable, V any](source map[K]V) map[K]V {
 1. Khởi tạo map bằng `make` hoặc literal trước khi ghi.
 2. Dùng comma-ok khi zero value và trạng thái “không tồn tại” có ý nghĩa khác nhau.
 3. Không phụ thuộc vào thứ tự của `range` trên map; sắp xếp key khi cần output ổn định.
-4. Dùng `map[T]struct{}` để biểu diễn set.
+4. Với mức cơ bản, dùng `map[T]bool` để biểu diễn set cho dễ hiểu.
 5. Preallocate bằng `make(map[K]V, expectedSize)` khi biết gần đúng số entry.
 6. Không giữ reference tới map nội bộ nếu API cần bảo vệ dữ liệu; trả về bản sao.
 7. Nhớ rằng clone thông thường chỉ là shallow copy.
@@ -168,7 +168,7 @@ Ví dụ: `["go", "java", "go"]` thành `map[go:2 java:1]`.
 
 #### Bài 4: Set phần tử duy nhất
 
-Viết `toSet(values []int) map[int]struct{}` và kiểm tra một số có thuộc set không.
+Viết `toSet(values []int) map[int]bool` và kiểm tra một số có thuộc set không.
 
 ### Mức dễ đến vừa
 
@@ -216,4 +216,3 @@ Ví dụ: `[4, 5, 4, 6, 5]` trả `(6, true)`.
 - Tôi biết dùng map làm counter và set.
 - Tôi hiểu clone map là shallow copy.
 - Tôi hoàn thành ít nhất 6/8 bài tập.
-
