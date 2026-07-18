@@ -12,5 +12,9 @@ func main() {
 		whiteList[ip] = true
 	}
 	fmt.Println(whiteList)
-	allowed := whiteList[check]
+	allowed := whiteList[checkIP]
+	uniqueIps := len(whiteList)
+
+	fmt.Printf("allowed=%v\n", allowed)
+	fmt.Printf("unique_ips=%d\n", uniqueIps)
 }
